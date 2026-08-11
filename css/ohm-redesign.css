@@ -282,6 +282,61 @@ button { font-family: inherit; }
   color: var(--text-muted);
 }
 
+/* ============ FEATURED PRESS ============ */
+.press-feature {
+  padding: 12rem 0;
+  background: #0b0b0b;
+  border-bottom: 1px solid var(--border);
+}
+.press-header {
+  margin-bottom: 2.8rem;
+}
+.press-intro {
+  max-width: 76rem;
+  margin: 0 auto 6rem;
+  text-align: center;
+  font-size: 1.7rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.6);
+}
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem;
+  align-items: start;
+}
+.press-page {
+  margin: 0;
+}
+.press-page-link {
+  display: block;
+  background: #f6f5f0;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 2rem 5rem rgba(0,0,0,0.35);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.press-page-link:hover {
+  transform: translateY(-0.6rem);
+  border-color: rgba(200,169,110,0.65);
+  box-shadow: 0 2.8rem 6rem rgba(0,0,0,0.48);
+}
+.press-page img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.press-page figcaption {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.press-page figcaption span {
+  color: var(--gold);
+  margin-right: 1rem;
+}
+
 /* ============ SECTION HEADER ============ */
 .section-header {
   text-align: center;
@@ -661,10 +716,11 @@ button { font-family: inherit; }
   .site-nav { padding: 1.6rem 2.4rem; }
   .site-nav.scrolled { padding: 1.4rem 2.4rem; }
   .overview { padding: 8rem 0; }
-  .transformation, .events-section { padding: 8rem 0; }
+  .transformation, .press-feature, .events-section { padding: 8rem 0; }
   .section-heading { font-size: 3.6rem; }
   .overview-heading { font-size: 3.6rem; }
   .footer-venue { font-size: 4rem; }
   .lb-prev { left: 0.8rem; }
   .lb-next { right: 0.8rem; }
+  .press-grid { grid-template-columns: 1fr; gap: 4.8rem; max-width: 52rem; margin: 0 auto; }
 }
