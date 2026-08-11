@@ -215,9 +215,7 @@ button { font-family: inherit; }
 .overview-brand-mark {
   display: block;
   width: 100%;
-  max-width: 42rem;
   height: auto;
-  margin-bottom: 3rem;
 }
 .overview-label {
   font-size: 1rem;
