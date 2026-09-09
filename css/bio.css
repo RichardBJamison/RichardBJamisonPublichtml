@@ -686,3 +686,18 @@ button { font-family: inherit; }
   .nav-links { gap: 2rem; }
   .story-heading { font-size: 3.8rem; }
 }
+
+/* Contact form follows the existing biography palette and type scale. */
+.contact-form { max-width: 68rem; margin: 0 auto 5rem; text-align: left; }
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.contact-form label { display: block; font-size: 1.6rem; margin-bottom: 2rem; }
+.contact-form input, .contact-form textarea { display: block; width: 100%; margin-top: .8rem; padding: 1.4rem; border: 1px solid var(--border); border-radius: 0; background: var(--dark-2); color: var(--text); font: inherit; font-size: 1.6rem; }
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+.contact-form textarea { resize: vertical; }
+.contact-form .contact-trap { display: none; }
+.contact-form button { cursor: pointer; border: 0; font-family: inherit; font-size: 1.4rem; }
+.contact-form button:disabled { opacity: .65; cursor: wait; }
+#contact-status, .contact-direct { font-size: 1.6rem; line-height: 1.6; margin-top: 2rem; }
+.contact-direct { color: var(--text-muted); }
+.contact-direct a { color: var(--gold); }
+@media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; gap: 0; } .contact-form button { width: 100%; } }
