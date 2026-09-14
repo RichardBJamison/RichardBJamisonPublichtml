@@ -445,6 +445,19 @@ button { font-family: inherit; }
   opacity: 1;
 }
 
+.timeline-still {
+  width: 100%;
+  height: auto;
+  max-width: none !important;
+  max-height: none !important;
+  display: block;
+  object-fit: cover;
+  filter: none !important;
+  opacity: 1 !important;
+  border-radius: 2px;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.55);
+}
+
 .timeline-dates {
   font-size: 1.1rem;
   letter-spacing: 0.3em;
