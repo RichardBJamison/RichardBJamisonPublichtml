@@ -153,6 +153,9 @@
             padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem) clamp(4rem, 8vw, 7rem);
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.75rem;
         }
 
         .project-card {
@@ -895,7 +898,8 @@
         .ohm-showcase {
             display: block;
             position: relative;
-            margin-bottom: 1.25rem;
+            min-height: 22.5rem;
+            margin-bottom: 0;
             border-radius: var(--radius);
             overflow: hidden;
             border: 1px solid rgba(200, 169, 110, 0.18);
@@ -905,6 +909,14 @@
             color: inherit;
             transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+        }
+
+        .ohm-showcase.ovlp {
+            border-color: rgba(200, 150, 58, 0.22);
+        }
+
+        .ohm-showcase.osbw {
+            border-color: rgba(205, 127, 50, 0.22);
         }
 
         .ohm-showcase:hover {
@@ -919,6 +931,18 @@
             background:
                 linear-gradient(100deg, rgba(8, 8, 8, 0.94) 0%, rgba(8, 8, 8, 0.78) 45%, rgba(8, 8, 8, 0.35) 100%),
                 url('img/rbj-img/OHM After 000.jpg') center / cover no-repeat;
+        }
+
+        .ohm-showcase.ovlp .ohm-bg {
+            background:
+                linear-gradient(100deg, rgba(12, 18, 11, 0.94) 0%, rgba(12, 18, 11, 0.72) 42%, rgba(12, 18, 11, 0.22) 100%),
+                url('img/ovlp-field-crop.jpg') 70% 60% / cover no-repeat;
+        }
+
+        .ohm-showcase.osbw .ohm-bg {
+            background:
+                linear-gradient(100deg, rgba(13, 11, 9, 0.94) 0%, rgba(13, 11, 9, 0.78) 42%, rgba(13, 11, 9, 0.28) 100%),
+                url('img/osbw-card.jpg') 72% center / cover no-repeat;
         }
 
         .ohm-glow {
@@ -965,6 +989,16 @@
             font-size: 0.92em;
             margin-top: 0.15rem;
         }
+
+        .ohm-showcase.ovlp .ohm-eyebrow,
+        .ohm-showcase.ovlp .ohm-cta-hint { color: var(--ovlp-amber); }
+        .ohm-showcase.ovlp h2 .sub { color: var(--ovlp-amber); }
+        .ohm-showcase.ovlp:hover { border-color: rgba(200, 150, 58, 0.42); }
+
+        .ohm-showcase.osbw .ohm-eyebrow,
+        .ohm-showcase.osbw .ohm-cta-hint { color: var(--osbw-copper); }
+        .ohm-showcase.osbw h2 .sub { color: var(--osbw-brass); }
+        .ohm-showcase.osbw:hover { border-color: rgba(205, 127, 50, 0.42); }
 
         .ohm-desc {
             font-size: 0.96rem;
@@ -1068,7 +1102,7 @@
         /* ── Projects showcase ── */
         .projects-showcase {
             position: relative;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0;
             border-radius: var(--radius);
             overflow: hidden;
             border: 1px solid var(--border);
@@ -1408,207 +1442,47 @@
         </a>
 
         <!-- OVLP -->
-        <article class="ovlp-showcase" id="ovlp">
-            <div class="ovlp-bg" aria-hidden="true"></div>
-            <div class="ovlp-glow" aria-hidden="true"></div>
-            <div class="ovlp-ring" aria-hidden="true"></div>
-
-            <div class="ovlp-inner">
-                <div class="ovlp-content">
-                    <img src="img/ovlp-logo.png" alt="Ohio Valley Land Partners" class="ovlp-logo">
-
-                    <p class="ovlp-eyebrow">Explore a direct sale.</p>
+        <a href="https://ohiovalleylandpartners.com" class="ohm-showcase ovlp" id="ovlp" target="_blank" rel="noopener">
+            <div class="ohm-bg" aria-hidden="true"></div>
+            <div class="ohm-glow" aria-hidden="true"></div>
+            <div class="ohm-inner">
+                <div class="ohm-content">
+                    <p class="ohm-eyebrow">Land Acquisition · Ohio Valley · Direct Purchase</p>
                     <h2>
-                        We Buy Land All Over the Ohio Valley.
-                        <span class="accent">Local. Intentional. Fair.</span>
+                        Ohio Valley Land Partners
+                        <span class="sub">Local. Intentional. Fair.</span>
                     </h2>
-
-                    <p class="ovlp-desc">
-                        Ohio Valley Land Partners is a principal land buyer — not a broker. We acquire
-                        vacant lots, inherited property, and back-tax parcels across Ohio, Pennsylvania,
-                        West Virginia, Kentucky, and Indiana. Every parcel gets a full property analysis
-                        before we make a property-specific proposal. Active county campaigns, an active
-                        builders network, and 5% of profits back to Ohio Valley nonprofits.
+                    <p class="ohm-desc">
+                        Principal land buyer — not a broker. We acquire vacant lots, inherited property,
+                        and back-tax parcels across Ohio, Pennsylvania, West Virginia, Kentucky, and Indiana.
+                        Every parcel gets a full analysis before a property-specific proposal, and 5% of
+                        profits go back to Ohio Valley nonprofits.
                     </p>
-
-                    <ul class="ovlp-trust">
-                        <li>Local buyer rooted in the Ohio Valley — not an out-of-state hedge fund</li>
-                        <li>No agent fees or commissions — you deal directly with the buyer</li>
-                        <li>Full property analysis before every proposal</li>
-                        <li>Close in as little as 14 days when title is clear</li>
-                    </ul>
-
-                    <div class="ovlp-stats">
-                        <div class="ovlp-stat">
-                            <strong>1.77M+</strong>
-                            <span>Core acres</span>
-                        </div>
-                        <div class="ovlp-stat">
-                            <strong>9</strong>
-                            <span>Active campaigns</span>
-                        </div>
-                        <div class="ovlp-stat">
-                            <strong>5</strong>
-                            <span>State coverage</span>
-                        </div>
-                        <div class="ovlp-stat">
-                            <strong>5%</strong>
-                            <span>Profits to nonprofits</span>
-                        </div>
-                    </div>
-
-                    <div class="ovlp-badge">
-                        <span class="dot"></span>
-                        5% of profits supports Arc of Appalachia, Salvation Army East Palestine &amp; COCIC Land Bank
-                    </div>
-
-                    <div class="ovlp-links">
-                        <a href="https://ohiovalleylandpartners.com" class="ovlp-link primary" target="_blank" rel="noopener">
-                            Visit ohiovalleylandpartners.com →
-                        </a>
-                        <a href="https://ohiovalleylandpartners.com/contact" class="ovlp-link secondary" target="_blank" rel="noopener">
-                            Request analysis
-                        </a>
-                        <a href="https://ohiovalleylandpartners.com/investor-portal" class="ovlp-link secondary" target="_blank" rel="noopener">
-                            Builders network
-                        </a>
-                        <a href="https://ohiovalleylandpartners.com/ohio-valley-guides" class="ovlp-link secondary" target="_blank" rel="noopener">
-                            County guides
-                        </a>
-                    </div>
+                    <span class="ohm-cta-hint">Visit ohiovalleylandpartners.com →</span>
                 </div>
-
-                <aside class="ovlp-panel">
-                    <h3>Active County Campaigns</h3>
-                    <div class="ovlp-counties">
-                        <a href="https://ohiovalleylandpartners.com/sell-land/franklin-county-oh" class="ovlp-county" target="_blank" rel="noopener">Franklin, OH</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/belmont-county-oh" class="ovlp-county" target="_blank" rel="noopener">Belmont, OH</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/jefferson-county-oh" class="ovlp-county" target="_blank" rel="noopener">Jefferson, OH</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/columbiana-county-oh" class="ovlp-county" target="_blank" rel="noopener">Columbiana, OH</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/harrison-county-oh" class="ovlp-county" target="_blank" rel="noopener">Harrison, OH</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/carroll-county-oh" class="ovlp-county" target="_blank" rel="noopener">Carroll, OH</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/ohio-county-wv" class="ovlp-county" target="_blank" rel="noopener">Ohio Co, WV</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/marshall-county-wv" class="ovlp-county" target="_blank" rel="noopener">Marshall, WV</a>
-                        <a href="https://ohiovalleylandpartners.com/sell-land/brooke-county-wv" class="ovlp-county" target="_blank" rel="noopener">Brooke, WV</a>
-                    </div>
-                    <p class="ovlp-panel-note">
-                        Built and deployed as a production Next.js site — SEO blog, county sell-land pages,
-                        investor portal, and GA4 analytics.
-                        <a href="https://ohiovalleylandpartners.com/about" target="_blank" rel="noopener">About OVLP →</a>
-                    </p>
-                </aside>
             </div>
-        </article>
+        </a>
 
         <!-- OSBW -->
-        <article class="osbw-showcase" id="osbw">
-            <div class="osbw-bg osbw-grain" aria-hidden="true"></div>
-            <div class="osbw-glow" aria-hidden="true"></div>
-            <div class="osbw-gear osbw-gear-1" aria-hidden="true"></div>
-            <div class="osbw-gear osbw-gear-2" aria-hidden="true"></div>
-
-            <div class="osbw-inner">
-                <aside class="osbw-panel">
-                    <h3>The Workshop — 6 Free Tools</h3>
-                    <a href="https://opensourcebarware.com/downloads" class="osbw-tool" target="_blank" rel="noopener">
-                        <div class="osbw-tool-num">01</div>
-                        <div class="osbw-tool-title">Bar Inventory Master Sheet</div>
-                        <div class="osbw-tool-desc">Complete workbook — liquor, beer, wine, mixers. Pour cost, usage rate, reorder alerts.</div>
-                    </a>
-                    <a href="https://opensourcebarware.com/downloads" class="osbw-tool" target="_blank" rel="noopener">
-                        <div class="osbw-tool-num">02</div>
-                        <div class="osbw-tool-title">Quick Count Template</div>
-                        <div class="osbw-tool-desc">Print it, grab a pen, count, done. Only the columns that matter.</div>
-                    </a>
-                    <a href="https://opensourcebarware.com/downloads" class="osbw-tool" target="_blank" rel="noopener">
-                        <div class="osbw-tool-num">03</div>
-                        <div class="osbw-tool-title">Variance Calculator</div>
-                        <div class="osbw-tool-desc">Physical counts vs. POS data. Shrinkage by category, problem products flagged.</div>
-                    </a>
-                    <a href="https://opensourcebarware.com/downloads" class="osbw-tool" target="_blank" rel="noopener">
-                        <div class="osbw-tool-num">04</div>
-                        <div class="osbw-tool-title">Product Database</div>
-                        <div class="osbw-tool-desc">500+ bar products pre-loaded. Bottle sizes, costs, standard pours.</div>
-                    </a>
-                    <a href="https://opensourcebarware.com/inventory" class="osbw-tool" target="_blank" rel="noopener">
-                        <div class="osbw-tool-num">06</div>
-                        <div class="osbw-tool-title">Mobile Count App</div>
-                        <div class="osbw-tool-desc">Count on your phone behind the bar. Works offline, syncs on WiFi.</div>
-                    </a>
-                </aside>
-
-                <div class="osbw-content">
-                    <div class="osbw-logo-row">
-                        <img src="img/osbw-logo.png" alt="Open Source Barware" class="osbw-logo">
-                        <div class="osbw-eyebrow">
-                            <span class="dot"></span>
-                            <span class="line"></span>
-                            <span>Free &amp; Open Source</span>
-                        </div>
-                    </div>
-
+        <a href="https://opensourcebarware.com" class="ohm-showcase osbw" id="osbw" target="_blank" rel="noopener">
+            <div class="ohm-bg" aria-hidden="true"></div>
+            <div class="ohm-glow" aria-hidden="true"></div>
+            <div class="ohm-inner">
+                <div class="ohm-content">
+                    <p class="ohm-eyebrow">Hospitality Tools · Open Source · Free Forever</p>
                     <h2>
-                        <span class="copper">Bar inventory</span><br>
-                        shouldn't cost<br>
-                        <span class="cream">you a thing.</span>
+                        Open Source Barware
+                        <span class="sub">The tools we wished existed.</span>
                     </h2>
-
-                    <p class="osbw-desc">
-                        Open Source Barware is free bar inventory tooling built from real operator pain —
-                        not generic SaaS assumptions. Close out, grab the clipboard, count every bottle by tenths,
-                        reconcile against POS, watch it never add up. <strong>We built the tools we wished existed.</strong>
-                        No subscriptions. No vendor lock-in. No email capture. Use your AI. Just count your bottles and go home.
+                    <p class="ohm-desc">
+                        Free bar inventory tooling built from behind the stick — not generic SaaS.
+                        Count every bottle, reconcile against POS, and go home. No subscriptions,
+                        no vendor lock-in, no email capture. Field-tested at Agave &amp; Rye in downtown Cleveland.
                     </p>
-
-                    <div class="osbw-stats">
-                        <div class="osbw-stat">
-                            <strong>$0</strong>
-                            <span>Cost, forever</span>
-                        </div>
-                        <div class="osbw-stat">
-                            <strong>6</strong>
-                            <span>Free tools</span>
-                        </div>
-                        <div class="osbw-stat">
-                            <strong>3</strong>
-                            <span>Weeks field tested</span>
-                        </div>
-                        <div class="osbw-stat">
-                            <strong>100%</strong>
-                            <span>Open source</span>
-                        </div>
-                    </div>
-
-                    <div class="osbw-field">
-                        <div class="osbw-field-bar"></div>
-                        <p>Field-tested at <em>Agave &amp; Rye</em> in downtown Cleveland. Real bottles. Real counts. Real pressure at 2am.</p>
-                    </div>
-
-                    <blockquote class="osbw-quote">
-                        "If you're going to build inventory tools, you better do it standing behind a bar at 2am with a clipboard. Otherwise you're just guessing."
-                    </blockquote>
-
-                    <div class="osbw-links">
-                        <a href="https://opensourcebarware.com" class="osbw-link primary" target="_blank" rel="noopener">
-                            Visit opensourcebarware.com →
-                        </a>
-                        <a href="https://opensourcebarware.com/downloads" class="osbw-link secondary" target="_blank" rel="noopener">
-                            Download free tools
-                        </a>
-                        <a href="https://opensourcebarware.com/inventory" class="osbw-link secondary" target="_blank" rel="noopener">
-                            Launch count app
-                        </a>
-                        <a href="https://opensourcebarware.com/resources" class="osbw-link secondary" target="_blank" rel="noopener">
-                            Resources
-                        </a>
-                        <a href="https://opensourcebarware.com/about" class="osbw-link secondary" target="_blank" rel="noopener">
-                            Our story
-                        </a>
-                    </div>
+                    <span class="ohm-cta-hint">Visit opensourcebarware.com →</span>
                 </div>
             </div>
-            <div class="osbw-pipe" aria-hidden="true"></div>
-        </article>
+        </a>
 
         <!-- PROJECTS -->
         <section class="projects-showcase" id="projects">
@@ -1672,7 +1546,7 @@
     </footer>
 
     <script>
-        const sections = document.querySelectorAll('.ohm-showcase[id], .ovlp-showcase[id], .osbw-showcase[id], .projects-showcase[id]');
+        const sections = document.querySelectorAll('.ohm-showcase[id], .projects-showcase[id]');
         const navLinks = document.querySelectorAll('[data-nav]');
 
         const observer = new IntersectionObserver((entries) => {
