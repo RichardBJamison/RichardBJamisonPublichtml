@@ -7,12 +7,12 @@
   const items = [...document.querySelectorAll('.timeline-item')];
 
   const FLIP = [
-    [0.20, 0.30],
     [0.30, 0.40],
     [0.40, 0.50],
-    [0.30, 0.40],
+    [0.50, 0.60],
     [0.40, 0.50],
-    [0.50, 0.60]
+    [0.50, 0.60],
+    [0.60, 0.70]
   ];
 
   const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
@@ -20,7 +20,12 @@
     t = clamp(t, 0, 1);
     return t * t * (3 - 2 * t);
   };
+  const easeOut = (t) => {
+    t = clamp(t, 0, 1);
+    return 1 - Math.pow(1 - t, 3);
+  };
   const span = (p, a, b) => smooth((p - a) / Math.max(0.0001, b - a));
+  const spanSlow = (p, a, b) => easeOut((p - a) / Math.max(0.0001, b - a));
   const viewPct = (el) => 1 - (el.getBoundingClientRect().top / window.innerHeight);
 
   function setFlip(card, deg) {
@@ -59,8 +64,8 @@
 
     items.forEach((item, i) => {
       const p = viewPct(item);
-      const visT = span(p, 0.25, 0.42);
-      const conT = span(p, 0.38, 0.52);
+      const visT = spanSlow(p, 0.22, 0.58);
+      const conT = spanSlow(p, 0.42, 0.82);
       const odd = i % 2 === 0;
       const visFrom = odd ? 14 : -14;
       const conFrom = odd ? -14 : 14;
