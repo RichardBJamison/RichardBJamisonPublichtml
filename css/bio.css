@@ -334,26 +334,57 @@ button { font-family: inherit; }
 .expertise-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 1.6rem;
 }
-.expertise-item {
+.expertise-card {
+  perspective: 1400px;
+  min-height: 32rem;
+  height: 100%;
+}
+.expertise-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 32rem;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg));
+  will-change: transform;
+}
+.expertise-face {
+  position: absolute;
+  inset: 0;
   padding: 4.8rem 4rem;
   background: var(--dark-3);
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-sizing: border-box;
 }
-.expertise-item:hover { background: var(--dark-4); }
-.expertise-item::after {
+.expertise-face-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, rgba(200,169,110,0.07), transparent 62%),
+    var(--dark-3);
+}
+.expertise-face-front .expertise-title {
+  margin: 0;
+  font-size: 2.6rem;
+  color: var(--gold-light);
+}
+.expertise-face-back {
+  transform: rotateX(180deg);
+}
+.expertise-face-back::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0;
-  width: 0;
+  width: 100%;
   height: 2px;
   background: var(--gold);
-  transition: width 0.5s ease;
+  opacity: 0.55;
 }
-.expertise-item:hover::after { width: 100%; }
 .expertise-num {
   font-family: 'Playfair Display', serif;
   font-size: 5rem;
@@ -419,17 +450,26 @@ button { font-family: inherit; }
 .timeline-left { text-align: right; padding-right: 3rem; }
 .timeline-right { padding-left: 3rem; }
 
-/* Odd items: image on left, content on right */
-.timeline-item:nth-child(odd) .timeline-content { order: 2; }
-.timeline-item:nth-child(odd) .timeline-visual { order: 1; padding-right: 3rem; padding-left: 0; text-align: right; }
+/* Odd items: content on left, image on right */
+.timeline-item:nth-child(odd) .timeline-content { order: 1; }
+.timeline-item:nth-child(odd) .timeline-visual { order: 2; padding-left: 3rem; padding-right: 0; }
 
-/* Even items: content on left, image on right */
-.timeline-item:nth-child(even) .timeline-content { order: 1; }
-.timeline-item:nth-child(even) .timeline-visual { order: 2; padding-left: 3rem; padding-right: 0; }
+/* Even items: image on left, content on right */
+.timeline-item:nth-child(even) .timeline-content { order: 2; }
+.timeline-item:nth-child(even) .timeline-visual { order: 1; padding-right: 3rem; padding-left: 0; text-align: right; }
 
 .timeline-content { padding: 0; }
 .timeline-visual { display: flex; align-items: flex-start; }
-.timeline-item:nth-child(odd) .timeline-visual { justify-content: flex-end; }
+.timeline-item:nth-child(even) .timeline-visual { justify-content: flex-end; }
+
+@media (min-width: 1025px) {
+  .timeline-item .timeline-content,
+  .timeline-item .timeline-visual {
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  .timeline-item::before { opacity: var(--dot, 0); }
+}
 
 .company-logo {
   max-height: 5.6rem;
@@ -668,6 +708,17 @@ button { font-family: inherit; }
   .story-grid { grid-template-columns: 1fr; gap: 6rem; }
   .portrait-frame img { height: 40rem; }
   .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+  .expertise-card,
+  .expertise-inner { min-height: 0; }
+  .expertise-inner { transform: none !important; }
+  .expertise-face { position: relative; inset: auto; }
+  .expertise-face-front { display: none; }
+  .expertise-face-back { transform: none; }
+  .timeline-item .timeline-content,
+  .timeline-item .timeline-visual {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   .timeline::before { display: none; }
   .timeline-item {
     grid-template-columns: 1fr;
@@ -686,6 +737,16 @@ button { font-family: inherit; }
   }
   .education-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (prefers-reduced-motion: reduce) {
+  .expertise-inner { transform: rotateX(180deg) !important; }
+  .timeline-item .timeline-content,
+  .timeline-item .timeline-visual {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .timeline-item::before { opacity: 1 !important; }
+}
+
 @media (max-width: 768px) {
   .container { padding: 0 2.4rem; }
   .hero-content { padding: 0 2.4rem 8rem; }
