@@ -419,17 +419,17 @@ button { font-family: inherit; }
 .timeline-left { text-align: right; padding-right: 3rem; }
 .timeline-right { padding-left: 3rem; }
 
-/* Odd items: content on left, image on right */
-.timeline-item:nth-child(odd) .timeline-content { order: 1; }
-.timeline-item:nth-child(odd) .timeline-visual { order: 2; padding-left: 3rem; padding-right: 0; }
+/* Odd items: image on left, content on right */
+.timeline-item:nth-child(odd) .timeline-content { order: 2; }
+.timeline-item:nth-child(odd) .timeline-visual { order: 1; padding-right: 3rem; padding-left: 0; text-align: right; }
 
-/* Even items: image on left, content on right */
-.timeline-item:nth-child(even) .timeline-content { order: 2; }
-.timeline-item:nth-child(even) .timeline-visual { order: 1; padding-right: 3rem; padding-left: 0; text-align: right; }
+/* Even items: content on left, image on right */
+.timeline-item:nth-child(even) .timeline-content { order: 1; }
+.timeline-item:nth-child(even) .timeline-visual { order: 2; padding-left: 3rem; padding-right: 0; }
 
 .timeline-content { padding: 0; }
 .timeline-visual { display: flex; align-items: flex-start; }
-.timeline-item:nth-child(even) .timeline-visual { justify-content: flex-end; }
+.timeline-item:nth-child(odd) .timeline-visual { justify-content: flex-end; }
 
 .company-logo {
   max-height: 5.6rem;
